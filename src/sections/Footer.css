@@ -1,0 +1,17 @@
+.footer-section {
+    padding: 30px 20px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #ccc;
+}

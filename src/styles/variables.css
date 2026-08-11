@@ -1,0 +1,13 @@
+:root {
+    /* Colors */
+    --color-primary: #302F94;
+    --color-secondary: #FACA13;
+
+    --color-background: #ffffff;
+    --color-text: #000000;
+    --color-muted: #4A4A4A;
+
+    /* Typography */
+    --font-primary: "Manrope", sans-serif;
+    --font-display: "Lobster", cursive;
+}
