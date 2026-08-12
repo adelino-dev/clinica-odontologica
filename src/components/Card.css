@@ -10,8 +10,9 @@
 }
 
 .card-image {
-    width: 81px;
-    height: auto;
+    width: auto;
+    height: 81px;
+
 }
 
 .card-text {
