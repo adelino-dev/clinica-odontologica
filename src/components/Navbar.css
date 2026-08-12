@@ -1,0 +1,41 @@
+#navbar {
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    background-color: var(--color-primary);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+#links-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+#links-container a {
+    text-decoration: none;
+    color: var(--color-background);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#links-container a:hover {
+    color: var(--color-secondary);
+}
+
+#links-container a:active {
+    color: var(--color-secondary);
+}
+
+#links-container a:focus {
+    color: var(--color-secondary);
+}

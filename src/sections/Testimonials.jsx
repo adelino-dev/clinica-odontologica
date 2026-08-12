@@ -8,7 +8,7 @@ function Testimonials() {
     ];
 
     return (
-        <section id="testimonials" className="testimonials-section">
+        <section id="testemonials-section">
             <div className="testimonials-container">
                 <h2>O que dizem nossos pacientes</h2>
                 <div className="testimonials-grid">
