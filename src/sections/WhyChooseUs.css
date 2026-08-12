@@ -12,9 +12,3 @@
     justify-content: center;
     gap: 1rem;
 }
-
-#reasons-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
-}

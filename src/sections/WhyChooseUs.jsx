@@ -1,5 +1,6 @@
 import './WhyChooseUs.css';
 import Card from '../components/Card';
+import CardGrid from '../components/CardGrid';
 
 import atendimentoHumanizadoImg from "../assets/icons/atendimento-humanizado.png";
 import excelenciaClinicaImg from "../assets/icons/excelencia-clinica.png"
@@ -8,6 +9,12 @@ import ambienteAcolhedorImg from "../assets/icons/ambiente-acolhedor.png"
 import tratamentosAcessiveisImg from "../assets/icons/tratamentos-acessiveis.png";
 import confiancaCredibilidadeImg from "../assets/icons/confianca-e-credibilidade.png";
 
+/**
+ * "Why Choose Us" section component.
+ * Presents the clinic's key differentiators laid out in a card grid.
+ * 
+ * @returns {JSX.Element} The rendered WhyChooseUs section.
+ */
 function WhyChooseUs() {
     const reasons = [
         { image: atendimentoHumanizadoImg, title: "Atendimento Humanizado", desc: "Cuidamos de cada paciente com atenção, empatia e respeito." },
@@ -22,11 +29,11 @@ function WhyChooseUs() {
         <section id="why-choose-us-section">
             <div id="why-choose-us-container">
                 <h2 id="why-choose-us-title">Por que escolher a ClinicaOdontologica?</h2>
-                <div id="reasons-grid">
+                <CardGrid>
                     {reasons.map((r, index) => (
                         <Card title={r.title} description={r.desc} image={r.image} key={index} />
                     ))}
-                </div>
+                </CardGrid>
             </div>
         </section>
     );
