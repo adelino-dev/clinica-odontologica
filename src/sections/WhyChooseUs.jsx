@@ -1,4 +1,3 @@
-import './WhyChooseUs.css';
 import Card from '../components/Card';
 import CardGrid from '../components/CardGrid';
 
@@ -27,14 +26,12 @@ function WhyChooseUs() {
 
     return (
         <section id="why-choose-us-section">
-            <div id="why-choose-us-container">
-                <h2 id="why-choose-us-title">Por que escolher a ClinicaOdontologica?</h2>
-                <CardGrid>
-                    {reasons.map((r, index) => (
-                        <Card title={r.title} description={r.desc} image={r.image} key={index} />
-                    ))}
-                </CardGrid>
-            </div>
+            <h2 id="why-choose-us-title">Por que escolher a ClinicaOdontologica?</h2>
+            <CardGrid>
+                {reasons.map((r, index) => (
+                    <Card title={r.title} description={r.desc} image={r.image} key={index} />
+                ))}
+            </CardGrid>
         </section>
     );
 }
