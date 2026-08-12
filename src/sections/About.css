@@ -1,4 +1,4 @@
-#about-section {
+#about-container {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -7,7 +7,7 @@
     gap: 2.5rem;
 }
 
-#about-section>* {
+#about-container>* {
     width: 50%;
 }
 
