@@ -1,11 +1,34 @@
+import { useEffect, useRef } from 'react';
 import './Hero.css';
 import toothIcon from '../assets/icons/tooth-sparkles.png';
 import whatsappIcon from '../assets/icons/whatsapp-icon-white.png';
 import locationIcon from '../assets/icons/location-icon-white.png';
+import smileImg from '../assets/images/smile.jpg';
 
 function Hero() {
+    const bgRef = useRef(null);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (bgRef.current) {
+                const scrollY = window.scrollY;
+                // Multiplicador 0.3 controla a velocidade do parallax
+                bgRef.current.style.transform = `translate3d(0, ${scrollY * 0.3}px, 0)`;
+            }
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     return (
         <section id="hero-section">
+            <div 
+                ref={bgRef} 
+                className="hero-background-image" 
+                style={{ backgroundImage: `url(${smileImg})` }}
+            />
             <div id="hero-container">
                 <h1 id="hero-title-off">Clínica Odontológica</h1>
                 <div id="hero-text-container">

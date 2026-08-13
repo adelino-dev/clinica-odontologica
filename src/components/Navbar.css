@@ -6,11 +6,44 @@
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    background-color: var(--color-primary);
+    background-color: transparent;
     position: fixed;
+    /* Fica fixo para permitir a revelação dinâmica no scroll */
     top: 0;
     left: 0;
     right: 0;
+    z-index: 100;
+    transform: translateY(0);
+    transition: transform 0.3s ease, background-color 0.3s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+#navbar.hidden {
+    transform: translateY(-100%);
+    /* Desliza a barra para cima, ocultando-a */
+}
+
+#navbar.hero-scrolled {
+    background-color: var(--color-background);
+    /* Fundo branco dentro da Hero */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+#navbar.hero-scrolled #links-container a {
+    color: var(--color-primary);
+    /* Links azuis para contrastar com o fundo branco */
+}
+
+#navbar.past-hero {
+    background-color: color-mix(in srgb, var(--color-primary) 90%, transparent);
+    /* Azul com 90% de opacidade */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+}
+
+#navbar.past-hero #links-container a {
+    color: var(--color-background);
+    /* Links brancos de volta */
 }
 
 #links-container {

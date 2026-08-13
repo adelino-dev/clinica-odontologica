@@ -1,8 +1,54 @@
-import './Navbar.css'
+import { useState, useEffect, useRef } from 'react';
+import './Navbar.css';
 
 function Navbar() {
+    const [navbarState, setNavbarState] = useState('top'); // 'top', 'hero-scrolled', 'past-hero'
+    const [isVisible, setIsVisible] = useState(true);
+    const lastScrollY = useRef(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            const heroHeight = window.innerHeight * 0.7;
+
+            // 1. Determina o estado da navbar baseado na posição de rolagem
+            if (currentScrollY <= 10) {
+                setNavbarState('top');
+            } else if (currentScrollY <= heroHeight) {
+                setNavbarState('hero-scrolled');
+            } else {
+                setNavbarState('past-hero');
+            }
+
+            // 2. Controla a visibilidade (oculta ao descer, revela ao subir - apenas fora da Hero)
+            if (currentScrollY <= heroHeight) {
+                // Sempre visível dentro da Hero section
+                setIsVisible(true);
+            } else if (currentScrollY > lastScrollY.current) {
+                // Rolando para baixo fora da Hero -> esconde
+                setIsVisible(false);
+            } else {
+                // Rolando para cima -> mostra
+                setIsVisible(true);
+            }
+
+            lastScrollY.current = currentScrollY;
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll(); // Executa ao montar o componente
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    // Concatena as classes com base nos estados
+    const navbarClasses = [
+        navbarState,
+        !isVisible ? 'hidden' : ''
+    ].filter(Boolean).join(' ');
+
     return (
-        <nav id="navbar">
+        <nav id="navbar" className={navbarClasses}>
             <div id="navbar-container">
                 <div id="links-container">
                     <a href="#about-section">Quem somos</a>
