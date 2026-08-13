@@ -1,24 +1,30 @@
 import './HowItWorks.css';
+import whatsappIcon from '../assets/icons/whatsapp.png';
+import dentistIcon from '../assets/icons/dentista.png';
+import planIcon from '../assets/icons/plano-dentario.png';
+import arrowIcon from '../assets/icons/arrow-right.png';
 
 function HowItWorks() {
-    const steps = [
-        { step: "1", title: "Agendamento", desc: "Entre em contato por WhatsApp ou pelo formulário do site para escolher o melhor horário." },
-        { step: "2", title: "Primeira Consulta", desc: "Faremos uma avaliação completa da sua saúde bucal e discutiremos os melhores tratamentos." },
-        { step: "3", title: "Tratamento", desc: "Realizamos os procedimentos com tecnologia de ponta, segurança e sem dor." }
-    ];
 
     return (
-        <section id="how-it-works" className="how-it-works-section">
-            <div className="how-it-works-container">
-                <h2>Como Funciona</h2>
-                <div className="steps-grid">
-                    {steps.map((stepItem, index) => (
-                        <div key={index} className="step-card">
-                            <div className="step-number">{stepItem.step}</div>
-                            <h3>{stepItem.title}</h3>
-                            <p>{stepItem.desc}</p>
-                        </div>
-                    ))}
+        <section id="how-it-works-section">
+            <div id="how-it-works-container">
+                <h2>Como funciona seu atendimento?</h2>
+                <div id="steps-grid">
+                    <div className="step-card">
+                        <img src={whatsappIcon} alt="WhatsApp" />
+                        <span>1. Você agenda uma consulta pelo WhatApp</span>
+                    </div>
+                    <img src={arrowIcon} alt="Seta" />
+                    <div className="step-card">
+                        <img src={dentistIcon} alt="Dentista" />
+                        <span>2. A gente faz sua avaliação</span>
+                    </div>
+                    <img src={arrowIcon} alt="Seta" />
+                    <div className="step-card">
+                        <img src={planIcon} alt="Plano Odontológico" />
+                        <span>3. Você recebe um plano de tratamento personalizado</span>
+                    </div>
                 </div>
             </div>
         </section>
