@@ -28,3 +28,34 @@
     font-size: 1rem;
     font-weight: bold;
 }
+
+#testimonials-container a {
+    text-decoration: none;
+    margin-top: 30px;
+}
+
+#btn-avaliations {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-radius: 50px;
+    padding: 1rem;
+    border: 1.5px solid var(--color-primary);
+    background-color: color-mix(in srgb, var(--color-background) 10%, transparent);
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 400px;
+}
+
+#btn-avaliations:hover {
+    background-color: color-mix(in srgb, var(--color-background) 60%, transparent);
+}
+
+#btn-avaliations img {
+    height: 1.5rem;
+}

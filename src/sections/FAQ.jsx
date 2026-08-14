@@ -5,7 +5,7 @@ function FAQ() {
     const faqs = [
         {
             q: "Como faço para agendar uma consulta?",
-            a: 'As consultas são agendadas pelo WhatsApp. Clique no botão "Fale Conosco" aqui em baixo para iniciar uma conversa.'
+            a: 'As consultas são agendadas pelo WhatsApp. Clique em "Fale Conosco" aqui em baixo para iniciar uma conversa.'
         },
         {
             q: "A clínica atende crianças e adultos?",
