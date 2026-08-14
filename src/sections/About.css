@@ -1,3 +1,7 @@
+#card-image-top {
+    display: none;
+}
+
 #about-container {
     display: flex;
     flex-direction: row;
@@ -26,4 +30,35 @@
     text-align: justify;
     text-wrap: balance;
     font-size: 1.25rem;
+}
+
+
+@media (max-width: 1220px) {
+
+
+    #card-image-left {
+        display: none;
+    }
+
+    #card-image-top {
+        display: inline;
+        margin-bottom: 3rem;
+    }
+
+    #about-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+    }
+
+    #about-title {
+        width: 100%;
+        text-align: center;
+    }
+
+    #about-text-container {
+        align-items: center;
+        width: 100%;
+    }
 }
