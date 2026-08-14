@@ -44,3 +44,37 @@
     max-width: 202px;
     text-align: center;
 }
+
+@media (max-width: 930px) {
+
+    #how-it-works-container {
+        padding: 50px;
+    }
+
+    #steps-grid {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .step-card {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1.25rem;
+        height: auto;
+        width: 100%;
+    }
+
+    .step-card img {
+        margin: 0;
+    }
+
+    .step-card span {
+        text-align: left;
+    }
+
+    .arrow {
+        transform: rotate(90deg);
+    }
+
+}

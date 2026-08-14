@@ -15,12 +15,12 @@ function HowItWorks() {
                         <img src={whatsappIcon} alt="WhatsApp" />
                         <span>1. Você agenda uma consulta pelo WhatApp</span>
                     </div>
-                    <img src={arrowIcon} alt="Seta" />
+                    <img className="arrow" src={arrowIcon} alt="Seta" />
                     <div className="step-card">
                         <img src={dentistIcon} alt="Dentista" />
                         <span>2. A gente faz sua avaliação</span>
                     </div>
-                    <img src={arrowIcon} alt="Seta" />
+                    <img className="arrow" src={arrowIcon} alt="Seta" />
                     <div className="step-card">
                         <img src={planIcon} alt="Plano Odontológico" />
                         <span>3. Você recebe um plano de tratamento personalizado</span>
