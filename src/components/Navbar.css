@@ -1,6 +1,6 @@
 #navbar {
     width: 100vw;
-    height: 10vh;
+    padding: 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -17,19 +17,41 @@
     transition: transform 0.3s ease, background-color 0.3s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease, box-shadow 0.3s ease;
 }
 
+#navbar-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 2rem;
+    gap: 50px;
+}
+
+.logo-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-link img {
+    height: 80px;
+    padding: 10px;
+}
+
 #navbar.hidden {
     transform: translateY(-100%);
     /* Desliza a barra para cima, ocultando-a */
 }
 
 #navbar.hero-scrolled {
-    background-color: var(--color-background);
+    background-color: var(--color-primary);
     /* Fundo branco dentro da Hero */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 #navbar.hero-scrolled #links-container a {
-    color: var(--color-primary);
+    color: var(--color-background);
     /* Links azuis para contrastar com o fundo branco */
 }
 
@@ -43,7 +65,6 @@
 
 #navbar.past-hero #links-container a {
     color: var(--color-background);
-    /* Links brancos de volta */
 }
 
 #links-container {

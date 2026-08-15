@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import './Navbar.css';
+import logo from '../assets/icons/logo-sem-fundo.png';
 
 function Navbar() {
     const [navbarState, setNavbarState] = useState('top'); // 'top', 'hero-scrolled', 'past-hero'
@@ -50,6 +51,9 @@ function Navbar() {
     return (
         <nav id="navbar" className={navbarClasses}>
             <div id="navbar-container">
+                <a href="#hero-section" className="logo-link">
+                    <img src={logo} alt="Logo" />
+                </a>
                 <div id="links-container">
                     <a href="#about-section">Quem somos</a>
                     <a href="#treatments-section">Tratamentos</a>
