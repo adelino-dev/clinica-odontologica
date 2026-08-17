@@ -12,8 +12,8 @@ function Hero() {
         const handleScroll = () => {
             if (bgRef.current) {
                 const scrollY = window.scrollY;
-                // Multiplicador 0.3 controla a velocidade do parallax
-                bgRef.current.style.transform = `translate3d(0, ${scrollY * 0.3}px, 0)`;
+                // Multiplicador 0.5 controla a velocidade do parallax
+                bgRef.current.style.transform = `translate3d(0, ${scrollY * 0.5}px, 0)`;
             }
         };
         window.addEventListener('scroll', handleScroll, { passive: true });
@@ -24,9 +24,9 @@ function Hero() {
 
     return (
         <section id="hero-section">
-            <div 
-                ref={bgRef} 
-                className="hero-background-image" 
+            <div
+                ref={bgRef}
+                className="hero-background-image"
                 style={{ backgroundImage: `url(${smileImg})` }}
             />
             <div id="hero-container">
