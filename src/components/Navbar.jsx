@@ -5,6 +5,7 @@ import logo from '../assets/icons/logo-sem-fundo.png';
 function Navbar() {
     const [navbarState, setNavbarState] = useState('top'); // 'top', 'hero-scrolled', 'past-hero'
     const [isVisible, setIsVisible] = useState(true);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const lastScrollY = useRef(0);
 
     useEffect(() => {
@@ -26,8 +27,10 @@ function Navbar() {
                 // Sempre visível dentro da Hero section
                 setIsVisible(true);
             } else if (currentScrollY > lastScrollY.current) {
-                // Rolando para baixo fora da Hero -> esconde
-                setIsVisible(false);
+                // Rolando para baixo fora da Hero -> esconde (apenas se o menu mobile não estiver aberto)
+                if (!isMenuOpen) {
+                    setIsVisible(false);
+                }
             } else {
                 // Rolando para cima -> mostra
                 setIsVisible(true);
@@ -40,27 +43,72 @@ function Navbar() {
         handleScroll(); // Executa ao montar o componente
 
         return () => window.removeEventListener('scroll', handleScroll);
+    }, [isMenuOpen]);
+
+    // Fecha o menu ao redimensionar a tela para mais de 950px
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth > 950) {
+                setIsMenuOpen(false);
+            }
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
+
+    // Impede o scroll da página quando o menu lateral está aberto
+    useEffect(() => {
+        if (isMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isMenuOpen]);
 
     // Concatena as classes com base nos estados
     const navbarClasses = [
         navbarState,
-        !isVisible ? 'hidden' : ''
+        !isVisible ? 'hidden' : '',
+        isMenuOpen ? 'menu-open' : ''
     ].filter(Boolean).join(' ');
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+    const handleLinkClick = () => {
+        setIsMenuOpen(false);
+    };
 
     return (
         <nav id="navbar" className={navbarClasses}>
+            {isMenuOpen && <div className="navbar-backdrop" onClick={toggleMenu} />}
             <div id="navbar-container">
-                <a href="#hero-section" className="logo-link">
+                <a href="#hero-section" className="logo-link" onClick={handleLinkClick}>
                     <img src={logo} alt="Logo" />
                 </a>
-                <div id="links-container">
-                    <a href="#about-section">Quem somos</a>
-                    <a href="#treatments-section">Tratamentos</a>
-                    <a href="#testimonials-section">Avaliações</a>
-                    <a href="#faq-section">Dúvidas</a>
-                    <a href="#location-section">Localização</a>
-                    <a href="#contact-section">Contato</a>
+                
+                <button 
+                    className={`mobile-menu-btn ${isMenuOpen ? 'active' : ''}`}
+                    onClick={toggleMenu}
+                    aria-label="Menu principal"
+                    aria-expanded={isMenuOpen}
+                >
+                    <span className="hamburger-line"></span>
+                    <span className="hamburger-line"></span>
+                    <span className="hamburger-line"></span>
+                </button>
+
+                <div id="links-container" className={isMenuOpen ? 'open' : ''}>
+                    <a href="#about-section" onClick={handleLinkClick}>Quem somos</a>
+                    <a href="#treatments-section" onClick={handleLinkClick}>Tratamentos</a>
+                    <a href="#testimonials-section" onClick={handleLinkClick}>Avaliações</a>
+                    <a href="#faq-section" onClick={handleLinkClick}>Dúvidas</a>
+                    <a href="#location-section" onClick={handleLinkClick}>Localização</a>
+                    <a href="#contact-section" onClick={handleLinkClick}>Contato</a>
                 </div>
             </div>
         </nav>
