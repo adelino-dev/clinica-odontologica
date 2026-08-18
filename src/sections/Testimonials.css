@@ -59,3 +59,51 @@
 #btn-avaliations img {
     height: 1.5rem;
 }
+
+
+@media (max-width: 650px) {
+    #btn-avaliations {
+        width: 300px;
+    }
+
+    #testimonials-container {
+        padding: 100px 0;
+    }
+
+    #testimonials-title {
+        font-size: 2rem;
+    }
+
+    #stars-icon {
+        height: 60px;
+    }
+
+    #testimonials-container span {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 465px) {
+    #testimonials-container {
+        padding: 75px 0;
+    }
+
+    #testimonials-title {
+        font-size: 1.6rem;
+        padding: 0;
+    }
+
+    #stars-icon {
+        height: 50px;
+    }
+
+    #testimonials-container span {
+        font-size: 0.8rem;
+        max-width: 320px;
+    }
+
+    #btn-avaliations {
+        width: 200px;
+        font-size: 1rem;
+    }
+}
